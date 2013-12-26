@@ -1,4 +1,4 @@
-package com.mkyong.interceptor;
+package com.shinde.interceptor;
 
 //market interface
 public interface IAuditLog {

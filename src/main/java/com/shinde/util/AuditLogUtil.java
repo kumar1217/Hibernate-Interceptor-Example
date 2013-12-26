@@ -1,13 +1,13 @@
-package com.mkyong.util;
+package com.shinde.util;
 
 import java.sql.Connection;
 import java.util.Date;
 
 import org.hibernate.Session;
 
-import com.mkyong.common.AuditLog;
-import com.mkyong.interceptor.IAuditLog;
-import com.mkyong.persistence.HibernateUtil;
+import com.shinde.common.AuditLog;
+import com.shinde.interceptor.IAuditLog;
+import com.shinde.persistence.HibernateUtil;
 
 public class AuditLogUtil{
 	

@@ -1,11 +1,11 @@
-package com.mkyong.common;
+package com.shinde.common;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.mkyong.interceptor.AuditLogInterceptor;
-import com.mkyong.persistence.HibernateUtil;
+import com.shinde.interceptor.AuditLogInterceptor;
+import com.shinde.persistence.HibernateUtil;
 
 public class App {
 	public static void main(String[] args) {
@@ -16,26 +16,26 @@ public class App {
 		try {
 
 			AuditLogInterceptor interceptor = new AuditLogInterceptor();
-			
+
 			session = HibernateUtil.getSessionFactory().openSession(interceptor);
 			interceptor.setSession(session);
-			
+
 			//test insert
 			tx = session.beginTransaction();
 			Stock stockInsert = new Stock();
 			stockInsert.setStockCode("1111");
-			stockInsert.setStockName("mkyong");
+			stockInsert.setStockName("Rahul");
 			session.saveOrUpdate(stockInsert);
 			tx.commit();
-			
+
 			//test update
 			tx = session.beginTransaction();
 			Query query = session.createQuery("from Stock where stockCode = '1111'");
 			Stock stockUpdate = (Stock)query.list().get(0);
-			stockUpdate.setStockName("mkyong-update");
+			stockUpdate.setStockName("Rahul-update");
 			session.saveOrUpdate(stockUpdate);
 			tx.commit();
-			
+
 			//test delete
 			tx = session.beginTransaction();
 			session.delete(stockUpdate);
